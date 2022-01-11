@@ -1,0 +1,1 @@
+# patronage22_web_auto_szczecin
