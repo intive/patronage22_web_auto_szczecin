@@ -2,7 +2,7 @@
 **Branches**  
 When someone start working on task he should create feature branch with name of the task he is currently working on PROPER PATH:
 
-* feat/{task number}/{task name}
+feat/{task number}/{task name}
 
 All of the changes should be committed to this branch.  
 Commits should be informational.  
@@ -25,5 +25,5 @@ Creator of Pull Request should use “squash commit” option, the merge commit 
 [FIX], [MOD], [DEL]: options will be explained on meeting
 
 **Disagreement**  
-When two of developers can’t resolved discussion/disagreement by themselves. Whole group try to find a solution.  
-Conflicts can be resolve on automation QA channel.
+When two of developers can’t resolve discussion/disagreement by themselves. Whole group try to find a solution.  
+Conflicts can be resolved on automation QA channel.
