@@ -26,4 +26,4 @@ Creator of Pull Request should use “squash commit” option, the merge commit 
 
 **Disagreement**  
 When two of developers can’t resolved discussion/disagreement by themselves. Whole group try to find a solution.  
-Conflicts can be resolved on automation QA channel.
+Conflicts can be resolve on automation QA channel.
