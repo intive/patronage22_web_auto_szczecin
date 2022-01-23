@@ -2,7 +2,7 @@
 **Branches**  
 When someone start working on task he should create feature branch with name of the task he is currently working on PROPER PATH:
 
-* "feat/{task number}/{task name}"
+* feat/{task number}/{task name}
 
 All of the changes should be committed to this branch.  
 Commits should be informational.  
@@ -20,7 +20,7 @@ When PR is created it can be merged to main only if this PR got two approves by 
 All Browser Stack tests should be green on dedicated runners.  
 Creator of Pull Request should use “squash commit” option, the merge commit should look like:
 
-"[ADD] {Task number} + short informational description"
+[ADD] {Task number} + short informational description
 
 [FIX], [MOD], [DEL]: options will be explained on meeting
 
