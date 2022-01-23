@@ -1,0 +1,21 @@
+name: Pull request check
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  Main:
+    uses: intive/patronage22_web_auto_szczecin/.github/workflows/main-template.yml@main
+    with:
+      BUILD: Pull Request
+      NAME: Test Chrome on Windows
+      RUN: mvn clean test -Dbrowser="bs_chrome" -Denvironment="bs_chrome_win"
+    secrets:
+      BROWSERSTACK_USER: ${{ secrets.BROWSERSTACK_USER }}
+      BROWSERSTACK_KEY: ${{ secrets.BROWSERSTACK_KEY }}
+
+
+
+
