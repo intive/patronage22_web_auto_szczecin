@@ -10,7 +10,7 @@ After work is finished user should create Pull Request (PR) to main branch.
 It is advised to merge main to feature branch to resolve all conflicts, before creating PR.  
 
 **Review**  
-When PR is created everyone should find time to check it (whenever its possible).  
+When PR is created everyone should find time to check it (whenever it's possible).  
 When PR is changing anything about framework itself, every reviewer should run it and check if this particular change work (MAC vs Linux vs Windows).  
 When there is many changes requested in PR after making changes review process should start from the beginning.  
 There shouldn’t be situation when PR is hanging **more than three days**.
