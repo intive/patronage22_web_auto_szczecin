@@ -1,6 +1,11 @@
 package com.intive.template.pages;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import org.openqa.selenium.JavascriptExecutor;
+
+import java.io.IOException;
+
 
 public class HomePage extends BasePage {
 
@@ -13,6 +18,17 @@ public class HomePage extends BasePage {
     public boolean isPageLoaded() {
         String readyState = ((JavascriptExecutor) driver).executeScript("return document.readyState").toString();
         return readyState.equals("complete");
+    }
+
+    public Integer getWebResponseStatusCode() throws IOException {
+        // Example how we can use okHttp
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        Request request = new Request.Builder()
+                .url(PATRONAGE_URL)
+                .method("GET", null)
+                .build();
+        return client.newCall(request).execute().code();
     }
 
     public boolean isCorrectPage() {
