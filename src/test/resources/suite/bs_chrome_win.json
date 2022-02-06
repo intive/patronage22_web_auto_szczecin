@@ -1,6 +1,6 @@
 {
   "browser": "Chrome",
-  "browser_version":"96.0",
+  "browser_version":"97.0",
   "os":"Windows",
   "os_version":"10",
   "browserstack.selenium_version" : "4.1.0",
