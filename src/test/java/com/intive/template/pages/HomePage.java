@@ -2,7 +2,6 @@ package com.intive.template.pages;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -43,5 +42,4 @@ public class HomePage extends BasePage {
         String currentUrl = driver.getCurrentUrl();
         return currentUrl.equals(PATRONAGE_URL);
     }
-
 }
