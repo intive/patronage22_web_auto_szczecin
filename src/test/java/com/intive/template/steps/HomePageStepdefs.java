@@ -3,8 +3,10 @@ package com.intive.template.steps;
 import com.intive.template.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import org.junit.Assert;
+
 import java.io.IOException;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
@@ -18,7 +20,7 @@ public class HomePageStepdefs {
         homePage.openHomePage();
     }
 
-    @When("Home page is loaded and opened")
+    @Then("Home page is loaded and opened")
     public void homePageIsLoadedAndOpened() throws IOException {
         assertThat("Home page is not loaded", homePage.isPageLoaded(), is(true));
         assertThat("Home page is not opened", homePage.isCorrectPage(), is(true));
@@ -26,7 +28,8 @@ public class HomePageStepdefs {
     }
 
     @Then("Header component is visible")
-    public void headerComponentIsVisible() {
-        homePage.headerIsDisplayed();
+    public void headerIsVisible() {
+        Assert.assertTrue(homePage.headerIsDisplayed());
     }
 }
+
