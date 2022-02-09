@@ -3,13 +3,11 @@ package com.intive.template.steps;
 import com.intive.template.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 
 import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class HomePageStepdefs {
 
@@ -29,7 +27,7 @@ public class HomePageStepdefs {
 
     @Then("Header component is visible")
     public void headerIsVisible() {
-        Assert.assertTrue(homePage.headerIsDisplayed());
+        assertThat("Header component is not visible", homePage.headerIsDisplayed(), is(true));
     }
 }
 
