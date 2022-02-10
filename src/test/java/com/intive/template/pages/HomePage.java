@@ -3,13 +3,18 @@ package com.intive.template.pages;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import java.io.IOException;
-
 
 public class HomePage extends BasePage {
 
     private static final String PATRONAGE_URL = "https://patronage22-szczecin-js.vercel.app/";
+
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/header")
+    WebElement headerComponent;
 
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
@@ -35,4 +40,9 @@ public class HomePage extends BasePage {
         String currentUrl = driver.getCurrentUrl();
         return currentUrl.equals(PATRONAGE_URL);
     }
+
+    public boolean headerIsDisplayed() {
+        return headerComponent.isDisplayed();
+    }
 }
+

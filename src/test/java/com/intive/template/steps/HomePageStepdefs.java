@@ -7,8 +7,7 @@ import io.cucumber.java.en.Then;
 import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class HomePageStepdefs {
 
@@ -25,4 +24,10 @@ public class HomePageStepdefs {
         assertThat("Home page is not opened", homePage.isCorrectPage(), is(true));
         assertThat("The status code was not 200", homePage.getWebResponseStatusCode(), is(equalTo(200)));
     }
+
+    @Then("Header component is visible")
+    public void headerIsVisible() {
+        assertThat("Header component is not visible", homePage.headerIsDisplayed(), is(true));
+    }
 }
+
