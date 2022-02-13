@@ -1,0 +1,8 @@
+{
+  "browser": "Chrome",
+  "browser_version":"97.0",
+  "os":"Windows",
+  "os_version":"11",
+  "browserstack.selenium_version" : "4.1.0",
+  "project":"Patronage JS"
+}
