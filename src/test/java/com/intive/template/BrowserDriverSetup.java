@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -20,6 +21,7 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -54,6 +56,13 @@ public class BrowserDriverSetup {
                 DesiredCapabilities caps = new DesiredCapabilities(capabilities_browser);
                 DRIVER = new RemoteWebDriver(new URL(BROWSERSTACK_URL), caps);
                 DRIVER.manage().window().maximize();
+            }
+            case "chrome_mobile" -> {
+                Map<String, String> mobileEmulation = new HashMap<>();
+                mobileEmulation.put("deviceName", "Nexus 7");
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+                DRIVER = new ChromeDriver(chromeOptions);
             }
             default -> throw new IllegalStateException("Unsupported browser name!!!!");
         }
