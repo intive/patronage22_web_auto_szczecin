@@ -31,6 +31,7 @@ Default test will run on Chrome
 - Run all `mvn clean test` 
 - Run by tag `mvn clean test -Dcucumber.filter.tags="@Smoke"`
 - Run on different browser `mvn clean test -Dbrowser='firefox'`
+- Run on mobile emulator (Nexus 7) `mvn clean test -Dbrowser='chrome_mobile'`
 
 Also check Makefile for Browserstack
 

@@ -20,7 +20,7 @@ public class TestRunner {
     @BeforeClass
     public static void setup() {
         switch (System.getProperty("browser", "chrome").toLowerCase()) {
-            case "chrome", "bs_chrome" -> WebDriverManager.chromedriver().setup();
+            case "chrome", "bs_chrome", "chrome_mobile" -> WebDriverManager.chromedriver().setup();
             case "firefox" -> WebDriverManager.firefoxdriver().setup();
             default -> throw new IllegalStateException("Unsupported browser name for WebDriverManager !!!!");
         }
