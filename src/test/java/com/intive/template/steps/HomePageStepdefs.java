@@ -29,5 +29,10 @@ public class HomePageStepdefs {
     public void headerIsVisible() {
         assertThat("Header component is not visible", homePage.headerIsDisplayed(), is(true));
     }
+
+    @Then("Click on logo")
+    public void clickOnLogo(){
+        homePage.clickOnLogo();
+    }
 }
 
