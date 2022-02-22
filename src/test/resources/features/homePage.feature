@@ -4,7 +4,8 @@ Feature: Home page feature
     Given Open home page
     Then Home page is loaded and opened
 
+  @P2022-569
   Scenario: Set link to home on logo
     Given Open home page
-    Then Click on logo
+    When Click on logo
     Then Home page is loaded and opened
