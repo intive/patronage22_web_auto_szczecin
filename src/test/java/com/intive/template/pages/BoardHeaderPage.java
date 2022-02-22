@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-
 public class BoardHeaderPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/section/a")
@@ -15,8 +14,7 @@ public class BoardHeaderPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/section/div/button")
     WebElement newColumnButton;
-
-
+    
     public boolean isReturnToMainBoardLinkVisible() {
         return returnToMainBoardLink.isDisplayed();
     }
