@@ -3,6 +3,7 @@ package com.intive.template.steps;
 import com.intive.template.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import java.io.IOException;
 
@@ -28,6 +29,11 @@ public class HomePageStepdefs {
     @Then("Header component is visible")
     public void headerIsVisible() {
         assertThat("Header component is not visible", homePage.headerIsDisplayed(), is(true));
+    }
+
+    @When("Click on logo")
+    public void clickOnLogo(){
+        homePage.clickOnLogo();
     }
 }
 

@@ -16,6 +16,9 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "/html/body/div/div/header")
     WebElement headerComponent;
 
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a")
+    WebElement logo;
+
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
     }
@@ -43,6 +46,10 @@ public class HomePage extends BasePage {
 
     public boolean headerIsDisplayed() {
         return headerComponent.isDisplayed();
+    }
+
+    public void clickOnLogo() {
+        logo.click();
     }
 }
 
