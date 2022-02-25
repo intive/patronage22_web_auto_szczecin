@@ -4,6 +4,7 @@ import com.intive.template.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.io.IOException;
 
@@ -34,6 +35,11 @@ public class HomePageStepdefs {
     @When("Click on logo")
     public void clickOnLogo(){
         homePage.clickOnLogo();
+    }
+
+    @Then("Check if 'card' in cards count renders properly")
+    public void cardsCountersIsVisible() {
+        Assert.assertEquals(homePage.getCardsCountersList(), homePage.getCardsCounterFixedList());
     }
 }
 
