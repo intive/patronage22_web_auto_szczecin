@@ -13,4 +13,5 @@ Feature: Home page feature
   @P2022-1203
   Scenario: Check cards counter
     Given Open home page
+    When Cards counts are displayed
     Then Check if 'card' in cards count renders properly

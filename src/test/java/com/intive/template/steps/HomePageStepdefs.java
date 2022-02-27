@@ -37,9 +37,16 @@ public class HomePageStepdefs {
         homePage.clickOnLogo();
     }
 
+    @When("Cards counts are displayed")
+    public void isCardsCounterVisible() {
+        for (int i = 0; i < homePage.getCardCountersAmount(); i = i + 1)
+            Assert.assertTrue(homePage.isCardsCounterDisplayed(i));
+    }
+
     @Then("Check if 'card' in cards count renders properly")
-    public void cardsCountersIsVisible() {
-        Assert.assertEquals(homePage.getCardsCountersList(), homePage.getCardsCounterFixedList());
+    public void checkCardsCounter() {
+        for (int i = 0; i < homePage.getCardCountersAmount(); i = i + 1)
+            Assert.assertEquals(homePage.getCardsCounter(i), homePage.getCardsCounterFixed(i));
     }
 }
 

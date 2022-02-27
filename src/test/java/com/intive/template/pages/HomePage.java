@@ -8,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -57,28 +56,32 @@ public class HomePage extends BasePage {
         logo.click();
     }
 
-    public List<String> getCardsCountersList() {
-        List<String> cardsCountersList = new ArrayList<>();
-        for (int i = 0; i < cardsCounters.size(); i = i + 1)
-            cardsCountersList.add(cardsCounters.get(i).getText());
-
-        return cardsCountersList;
+    public boolean isCardsCounterDisplayed(int i) {
+        return cardsCounters.get(i).isDisplayed();
     }
 
-    public List<String> getCardsCounterFixedList() {
-        List<String> cardsCounterFixedList = new ArrayList<>();
-        for (int i = 0; i < cardsCounters.size(); i = i + 1) {
-            cardsCounterFixedList.add(cardsCounters.get(i).getText()
-                    .substring(0, cardsCounters.get(i).getText().indexOf(" ")));
+    public String getCardsCounter(int i) {
+        return cardsCounters.get(i).getText();
+    }
 
-            if (Integer.parseInt(cardsCounterFixedList.get(i)) == 1)
-                cardsCounterFixedList.set(i, cardsCounterFixedList.get(i) + " card");
-            else if (Integer.parseInt(cardsCounterFixedList.get(i)) == 0
-                    || Integer.parseInt(cardsCounterFixedList.get(i)) > 1)
-                cardsCounterFixedList.set(i, cardsCounterFixedList.get(i) + " cards");
-            else
-                System.err.println("Cards counter invalid value");
+    public String getCardsCounterFixed(int i) {
+        String cardsCounterFixed;
+        cardsCounterFixed = cardsCounters.get(i).getText().substring(0, cardsCounters.get(i).getText().indexOf(" "));
+
+        int counterParsedToInt = Integer.parseInt(cardsCounterFixed);
+
+        if (counterParsedToInt == 1)
+            return cardsCounterFixed + " card";
+        else if (counterParsedToInt == 0 || counterParsedToInt > 1)
+            return cardsCounterFixed + " cards";
+        else {
+            System.err.println("Cards counter invalid value");
+            return "Cards counter invalid value";
         }
-        return cardsCounterFixedList;
     }
+
+    public int getCardCountersAmount() {
+        return cardsCounters.size();
+    }
+
 }
