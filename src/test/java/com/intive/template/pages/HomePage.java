@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -56,32 +57,39 @@ public class HomePage extends BasePage {
         logo.click();
     }
 
-    public boolean isCardsCounterDisplayed(int i) {
-        return cardsCounters.get(i).isDisplayed();
-    }
-
-    public String getCardsCounter(int i) {
-        return cardsCounters.get(i).getText();
-    }
-
-    public String getCardsCounterFixed(int i) {
-        String cardsCounterFixed;
-        cardsCounterFixed = cardsCounters.get(i).getText().substring(0, cardsCounters.get(i).getText().indexOf(" "));
-
-        int counterParsedToInt = Integer.parseInt(cardsCounterFixed);
-
-        if (counterParsedToInt == 1)
-            return cardsCounterFixed + " card";
-        else if (counterParsedToInt == 0 || counterParsedToInt > 1)
-            return cardsCounterFixed + " cards";
-        else {
-            System.err.println("Cards counter invalid value");
-            return "Cards counter invalid value";
+    public boolean areCardsCountersDisplayed() {
+        for (WebElement counter : cardsCounters) {
+            if (!counter.isDisplayed())
+                return false;
         }
+        return true;
     }
 
-    public int getCardCountersAmount() {
-        return cardsCounters.size();
+    public List<String> getCardsCountersList() {
+        List<String> cardsCountersList = new ArrayList<>();
+        for (WebElement counter : cardsCounters)
+            cardsCountersList.add(counter.getText());
+        return cardsCountersList;
     }
 
+    public boolean checkCardsCounters() {
+        String cardsCounterFixed;
+        int counterParsedToInt;
+
+        for (String counter : getCardsCountersList()) {
+            cardsCounterFixed = counter.substring(0, counter.indexOf(" "));
+            counterParsedToInt = Integer.parseInt(cardsCounterFixed);
+
+            if (counterParsedToInt == 1)
+                cardsCounterFixed = cardsCounterFixed + " card";
+            else if (counterParsedToInt == 0 || counterParsedToInt > 1)
+                cardsCounterFixed = cardsCounterFixed + " cards";
+            else
+                return false;
+
+            if (!counter.equals(cardsCounterFixed))
+                return false;
+        }
+        return true;
+    }
 }
