@@ -98,23 +98,21 @@ public class HomePage extends BasePage {
 
     public String getCardsCount(String element) {
             String elementsCountFixed = element.substring(0, element.indexOf(" "));
-            int amount = Integer.parseInt(elementsCountFixed);
-            elementsCountFixed = elementsCountFixed + " card";
+            int count = Integer.parseInt(elementsCountFixed);
+            elementsCountFixed += " card";
 
-            if (amount == 1)
+            if (count == 1)
                 return elementsCountFixed;
-            else if (amount == 0 || amount > 1)
+            else if (count == 0 || count > 1)
                 return elementsCountFixed + "s";
             else
                 return "wrong count";
         }
 
-        public boolean checkCardsCounters() {
-            String elementsCountFixed;
 
+        public boolean checkCardsCounters() {
             for (String counter : getCardsCountersList()) {
-                elementsCountFixed = getCardsCount(counter);
-                if ( elementsCountFixed.equals("wrong count") || !counter.equals(elementsCountFixed))
+                if ( getCardsCount(counter).equals("wrong count") || !counter.equals(getCardsCount(counter)))
                     return false;
             }
             return true;
