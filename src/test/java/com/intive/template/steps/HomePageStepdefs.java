@@ -4,7 +4,6 @@ import com.intive.template.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 import java.io.IOException;
 
@@ -39,12 +38,18 @@ public class HomePageStepdefs {
 
     @When("Cards counts are displayed")
     public void isCardsCounterVisible() {
-        Assert.assertTrue(homePage.areCardsCountersDisplayed());
+        assertThat("Cards counts are not displayed", homePage.areCardsCountersDisplayed(), is(true));
     }
 
+    /*@Then("Check if {string} in cards count renders properly")
+    public void checkCardsCounters(String elementToCheck) {
+        assertThat("Cards count doesn't render properly",
+                homePage.checkElementsCounters(elementToCheck, homePage.getCardsCountersList()), is(true));
+    }*/
     @Then("Check if 'card' in cards count renders properly")
     public void checkCardsCounters() {
-        Assert.assertTrue(homePage.checkCardsCounters());
+        assertThat("Cards count doesn't render properly",
+                homePage.checkCardsCounters(), is(true));
     }
 }
 
