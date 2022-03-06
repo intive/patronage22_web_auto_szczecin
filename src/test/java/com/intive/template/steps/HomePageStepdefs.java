@@ -41,15 +41,10 @@ public class HomePageStepdefs {
         assertThat("Cards counts are not displayed", homePage.areCardsCountersDisplayed(), is(true));
     }
 
-    /*@Then("Check if {string} in cards count renders properly")
-    public void checkCardsCounters(String elementToCheck) {
-        assertThat("Cards count doesn't render properly",
-                homePage.checkElementsCounters(elementToCheck, homePage.getCardsCountersList()), is(true));
-    }*/
     @Then("Check if 'card' in cards count renders properly")
     public void checkCardsCounters() {
         assertThat("Cards count doesn't render properly",
-                homePage.checkCardsCounters(), is(true));
+                homePage.areCardsCountersDisplayedProperly(), is(true));
     }
 }
 

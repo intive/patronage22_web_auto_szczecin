@@ -72,50 +72,21 @@ public class HomePage extends BasePage {
         return cardsCountersList;
     }
 
-    /*public String getElementsCount(String element, String elementSingular) {
-        String elementsCountFixed = element.substring(0, element.indexOf(" "));
-        int amount = Integer.parseInt(elementsCountFixed);
-        elementsCountFixed = elementsCountFixed + " " + elementSingular;
+    public boolean checkCardsCount(String element) {
+        String cardsNumber = element.substring(0, element.indexOf(" "));
+        String cardsWord = element.substring(element.indexOf(" "));
+        int count = Integer.parseInt(cardsNumber);
 
-        if (amount == 1)
-            return elementsCountFixed;
-        else if (amount == 0 || amount > 1)
-            return elementsCountFixed + "s";
-        else
-            return "wrong count";
+        return ((count == 0 || count > 1) && cardsWord.equals(" cards"))
+                || (count == 1 && cardsWord.equals(" card"));
     }
 
-    public boolean checkElementsCounters(String singularElementAmount, List<String> listOfElements) {
-        String elementsCountFixed;
-
-        for (String counter : listOfElements) {
-            elementsCountFixed = getElementsCount(counter,singularElementAmount);
-            if ( elementsCountFixed.equals("wrong count") || !counter.equals(elementsCountFixed))
+    public boolean areCardsCountersDisplayedProperly() {
+        for (String counter : getCardsCountersList()) {
+            if (!checkCardsCount(counter))
                 return false;
         }
         return true;
-    }*/
-
-    public String getCardsCount(String element) {
-            String elementsCountFixed = element.substring(0, element.indexOf(" "));
-            int count = Integer.parseInt(elementsCountFixed);
-            elementsCountFixed += " card";
-
-            if (count == 1)
-                return elementsCountFixed;
-            else if (count == 0 || count > 1)
-                return elementsCountFixed + "s";
-            else
-                return "wrong count";
-        }
-
-
-        public boolean checkCardsCounters() {
-            for (String counter : getCardsCountersList()) {
-                if ( getCardsCount(counter).equals("wrong count") || !counter.equals(getCardsCount(counter)))
-                    return false;
-            }
-            return true;
     }
 
 }
