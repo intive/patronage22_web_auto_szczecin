@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomePage extends BasePage {
 
@@ -18,6 +20,9 @@ public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a")
     WebElement logo;
+
+    @FindBy(how = How.XPATH, using = "//p[contains(text(), ' card') and /html/body/div/div/main/div/div]")
+    List<WebElement> cardsCounters;
 
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
@@ -51,5 +56,37 @@ public class HomePage extends BasePage {
     public void clickOnLogo() {
         logo.click();
     }
-}
 
+    public boolean isCardsCountersDisplayed() {
+        for (WebElement counter : cardsCounters) {
+            if (!counter.isDisplayed())
+                return false;
+        }
+        return true;
+    }
+
+    public List<String> getCardsCountersList() {
+        List<String> cardsCountersList = new ArrayList<>();
+        for (WebElement counter : cardsCounters)
+            cardsCountersList.add(counter.getText());
+        return cardsCountersList;
+    }
+
+    public boolean checkCardsCount(String element) {
+        String cardsNumber = element.substring(0, element.indexOf(" "));
+        String cardsWord = element.substring(element.indexOf(" "));
+        int count = Integer.parseInt(cardsNumber);
+
+        return ((count == 0 || count > 1) && cardsWord.equals(" cards"))
+                || (count == 1 && cardsWord.equals(" card"));
+    }
+
+    public boolean isCardsCountersDisplayedProperly() {
+        for (String counter : getCardsCountersList()) {
+            if (!checkCardsCount(counter))
+                return false;
+        }
+        return true;
+    }
+
+}
