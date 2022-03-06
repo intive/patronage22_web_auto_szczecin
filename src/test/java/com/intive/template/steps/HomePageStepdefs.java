@@ -35,5 +35,15 @@ public class HomePageStepdefs {
     public void clickOnLogo(){
         homePage.clickOnLogo();
     }
+
+    @Then("Hover over Create board tile component")
+    public void hoverOverCreateBoardTileComponent() {
+        homePage.hoverCreateBoardTile();
+    }
+
+    @Then("Hover over New board button")
+    public void hoverOverNewBoardButton() {
+        homePage.hoverNewBoardButton();
+    }
 }
 

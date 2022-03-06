@@ -6,8 +6,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class HomePage extends BasePage {
 
@@ -18,6 +21,12 @@ public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a")
     WebElement logo;
+
+    @FindBy(how = How.XPATH, using = "//div[@role='button']")
+    WebElement createBoardTile;
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'New board')]")
+    WebElement newBoardButton;
 
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
@@ -50,6 +59,16 @@ public class HomePage extends BasePage {
 
     public void clickOnLogo() {
         logo.click();
+    }
+
+    public void hoverCreateBoardTile() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5,1));
+        wait.until(ExpectedConditions.elementToBeClickable (createBoardTile));
+    }
+
+    public void hoverNewBoardButton() {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5,1));
+        wait.until(ExpectedConditions.elementToBeClickable (newBoardButton));
     }
 }
 
