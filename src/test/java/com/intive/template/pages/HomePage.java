@@ -81,7 +81,7 @@ public class HomePage extends BasePage {
                 || (count == 1 && cardsWord.equals(" card"));
     }
 
-    public boolean areCardsCountersDisplayedProperly() {
+    public boolean isCardsCountersDisplayedProperly() {
         for (String counter : getCardsCountersList()) {
             if (!checkCardsCount(counter))
                 return false;

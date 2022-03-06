@@ -44,7 +44,7 @@ public class HomePageStepdefs {
     @Then("Check if 'card' in cards count renders properly")
     public void checkCardsCounters() {
         assertThat("Cards count doesn't render properly",
-                homePage.areCardsCountersDisplayedProperly(), is(true));
+                homePage.isCardsCountersDisplayedProperly(), is(true));
     }
 }
 
