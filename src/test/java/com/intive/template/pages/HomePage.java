@@ -57,7 +57,7 @@ public class HomePage extends BasePage {
         logo.click();
     }
 
-    public boolean areCardsCountersDisplayed() {
+    public boolean isCardsCountersDisplayed() {
         for (WebElement counter : cardsCounters) {
             if (!counter.isDisplayed())
                 return false;
