@@ -7,8 +7,9 @@ Feature: Header component feature
   @P2022-355
   Scenario: App logo and title are displayed on header
     Given Open home page
-    When Logo is visible
-    Then "My Retro Board" title of header is visible and readable
+    Then Header component is visible
+    And Logo is visible
+    And "My Retro Board" title of header is visible and readable
 
   @P2022-355
   Scenario: Header sticky

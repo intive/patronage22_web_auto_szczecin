@@ -9,3 +9,9 @@ Feature: Home page feature
     Given Open home page
     When Click on logo
     Then Home page is loaded and opened
+
+  @P2022-1203
+  Scenario: Check cards counter
+    Given Open home page
+    When Cards counts are displayed
+    Then Check if 'card' in cards count renders properly
