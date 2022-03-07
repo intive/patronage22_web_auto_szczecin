@@ -4,6 +4,7 @@ import com.intive.template.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 import java.io.IOException;
 
@@ -35,5 +36,24 @@ public class HomePageStepdefs {
     public void clickOnLogo(){
         homePage.clickOnLogo();
     }
-}
 
+    @When("Logo is visible")
+    public void logoIsVisible() {
+        assertThat("Header logo is not visible", homePage.logoIsDisplayed(), is(true));
+    }
+
+    @Then("{string} title of header is visible and readable")
+    public void titleOfHeaderIsVisibleAndReadable(String titleOfHeader) {
+        Assert.assertEquals("Title of header is not visible", homePage.titleOfHeaderIsDisplayed(), titleOfHeader);
+    }
+
+    @Then("Header is {string}")
+    public void headerIsSticky(String position) {
+        Assert.assertEquals("Header is not sticky", homePage.headerIsSticky(), position);
+    }
+
+    @Then("{string} color of background should be visible")
+    public void bodyBackgroundShouldBeVisible(String value) {
+        Assert.assertEquals("Background color is different", homePage.headerBackgroundIsSet(), value);
+    }
+}

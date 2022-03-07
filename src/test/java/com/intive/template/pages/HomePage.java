@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -18,6 +19,9 @@ public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a")
     WebElement logo;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a/p")
+    WebElement headerTitle;
 
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
@@ -50,6 +54,21 @@ public class HomePage extends BasePage {
 
     public void clickOnLogo() {
         logo.click();
+    }
+
+    public boolean logoIsDisplayed() { return logo.isDisplayed(); }
+
+    public String titleOfHeaderIsDisplayed() {
+        return headerTitle.getText();
+    }
+
+    public String headerIsSticky() {
+        return headerComponent.getCssValue("position");
+    }
+
+    public String headerBackgroundIsSet() {
+        String colorBackground = headerComponent.getCssValue("background-color");
+        return Color.fromString(colorBackground).asHex();
     }
 }
 

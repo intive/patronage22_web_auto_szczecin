@@ -15,7 +15,7 @@ public class BoardHeaderStepdefs {
     public void boardHeaderContainsExpectedElements() {
         assertThat("Board header component should contains Return to main board link", boardHeaderPage.isReturnToMainBoardLinkVisible(), is(true));
         assertThat("Board header component should contains Title", boardHeaderPage.isTitleVisible(), is(true));
-        assertThat("Board header component should contains New column button", boardHeaderPage.isNewColumnuttonVisble(), is(true));
+        assertThat("Board header component should contains New column button", boardHeaderPage.isNewColumnButtonVisible(), is(true));
     }
 
     @When("Click on Return to main board text")
