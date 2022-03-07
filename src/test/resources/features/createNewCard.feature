@@ -1,5 +1,5 @@
 Feature: Create new card feature
-
+@P2022-416
   Scenario: Create New Card
     Given Open home page
     When Click "Add card" button
