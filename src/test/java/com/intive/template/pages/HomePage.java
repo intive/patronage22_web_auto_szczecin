@@ -4,6 +4,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -67,11 +68,21 @@ public class HomePage extends BasePage {
     }
 
     public void hoverCreateBoardTile() {
+        Actions hover = new Actions(driver);
+        hover.moveToElement(createBoardTile).perform();
+    }
+
+    public void createBoardTileClickable() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5,1));
         wait.until(ExpectedConditions.elementToBeClickable (createBoardTile));
     }
 
     public void hoverNewBoardButton() {
+        Actions hover = new Actions(driver);
+        hover.moveToElement(newBoardButton).perform();
+    }
+
+    public void newBoardButtonClickable() {
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5,1));
         wait.until(ExpectedConditions.elementToBeClickable (newBoardButton));
     }

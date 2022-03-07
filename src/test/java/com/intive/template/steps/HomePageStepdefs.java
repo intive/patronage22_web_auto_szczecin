@@ -36,14 +36,24 @@ public class HomePageStepdefs {
         homePage.clickOnLogo();
     }
 
-    @Then("Hover over Create board tile component")
+    @When("Hover over Create board tile component")
     public void hoverOverCreateBoardTileComponent() {
         homePage.hoverCreateBoardTile();
     }
 
-    @Then("Hover over New board button")
+    @Then("Create board tile component is clickable")
+    public void createBoardTileComponentIsClickable() {
+        homePage.createBoardTileClickable();
+    }
+
+    @When("Hover over New board button")
     public void hoverOverNewBoardButton() {
         homePage.hoverNewBoardButton();
+    }
+
+    @Then("New board button is clickable")
+    public void newBoardButtonIsClickable() {
+        homePage.newBoardButtonClickable();
     }
 
     @When("Cards counts are displayed")
