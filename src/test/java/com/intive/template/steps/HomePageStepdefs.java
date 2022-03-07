@@ -45,5 +45,16 @@ public class HomePageStepdefs {
     public void hoverOverNewBoardButton() {
         homePage.hoverNewBoardButton();
     }
+
+    @When("Cards counts are displayed")
+    public void isCardsCounterVisible() {
+        assertThat("Cards counts are not displayed", homePage.isCardsCountersDisplayed(), is(true));
+    }
+
+    @Then("Check if 'card' in cards count renders properly")
+    public void checkCardsCounters() {
+        assertThat("Cards count doesn't render properly",
+                homePage.isCardsCountersDisplayedProperly(), is(true));
+    }
 }
 
