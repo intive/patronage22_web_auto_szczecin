@@ -54,7 +54,8 @@ public class HomePage extends BasePage {
     }
 
     public boolean headerIsDisplayed() {
-        return headerComponent.isDisplayed(); }
+        return headerComponent.isDisplayed();
+    }
 
     public void clickOnLogo() {
         logo.click();
@@ -92,17 +93,19 @@ public class HomePage extends BasePage {
         return true;
     }
 
-    public boolean logoIsDisplayed() { return logo.isDisplayed(); }
+    public boolean logoIsDisplayed() {
+        return logo.isDisplayed();
+    }
 
-    public String titleOfHeaderIsDisplayed() {
+    public String getHeaderTitleText() {
         return headerTitle.getText();
     }
 
-    public String headerIsSticky() {
+    public String getHeaderCssPosition() {
         return headerComponent.getCssValue("position");
     }
 
-    public String headerBackgroundIsSet() {
+    public String getHeaderBackgroundCssValue() {
         String colorBackground = headerComponent.getCssValue("background-color");
         return Color.fromString(colorBackground).asHex();
     }
