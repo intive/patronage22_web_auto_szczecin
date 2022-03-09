@@ -5,7 +5,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 
 import java.io.IOException;
 
@@ -56,16 +55,16 @@ public class HomePageStepdefs {
 
     @And("{string} title of header is visible and readable")
     public void titleOfHeaderIsVisibleAndReadable(String titleOfHeader) {
-        assertThat("Title of header is not visible", homePage.getHeaderTitleText(), is(titleOfHeader));
+        assertThat("Title of header is not visible", homePage.getHeaderTitleText(), is(equalTo(titleOfHeader)));
     }
 
     @Then("Header is {string}")
     public void headerIsSticky(String position) {
-        assertThat("Header is not sticky", homePage.getHeaderCssPosition(), is(position));
+        assertThat("Header is not sticky", homePage.getHeaderCssPosition(), is(equalTo(position)));
     }
 
     @Then("{string} color of background should be visible")
     public void bodyBackgroundShouldBeVisible(String value) {
-        assertThat("Background color is different", homePage.getHeaderBackgroundCssValue(), is(value));
+        assertThat("Background color is different", homePage.getHeaderBackgroundCssValue(), is(equalTo(value)));
     }
 }
