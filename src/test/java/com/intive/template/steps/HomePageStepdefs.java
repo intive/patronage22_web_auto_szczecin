@@ -56,16 +56,16 @@ public class HomePageStepdefs {
 
     @And("{string} title of header is visible and readable")
     public void titleOfHeaderIsVisibleAndReadable(String titleOfHeader) {
-        Assert.assertEquals("Title of header is not visible", homePage.getHeaderTitleText(), titleOfHeader);
+        assertThat("Title of header is not visible", homePage.getHeaderTitleText(), is(titleOfHeader));
     }
 
     @Then("Header is {string}")
     public void headerIsSticky(String position) {
-        Assert.assertEquals("Header is not sticky", homePage.getHeaderCssPosition(), position);
+        assertThat("Header is not sticky", homePage.getHeaderCssPosition(), is(position));
     }
 
     @Then("{string} color of background should be visible")
     public void bodyBackgroundShouldBeVisible(String value) {
-        Assert.assertEquals("Background color is different", homePage.getHeaderBackgroundCssValue(), value);
+        assertThat("Background color is different", homePage.getHeaderBackgroundCssValue(), is(value));
     }
 }
