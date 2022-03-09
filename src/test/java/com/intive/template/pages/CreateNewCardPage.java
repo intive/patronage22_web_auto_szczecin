@@ -31,7 +31,7 @@ public class CreateNewCardPage<CARD_NAME> extends BasePage {
         addCardButton.click();
     }
 
-    public void  clickSaveButton() {
+    public void clickSaveButton() {
         saveButton.click();
     }
 

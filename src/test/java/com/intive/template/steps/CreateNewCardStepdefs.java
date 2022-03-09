@@ -27,13 +27,11 @@ public class CreateNewCardStepdefs {
     @When("Type {string} in the textarea")
     public void addTextToTheItem(String text) {
         createNewCardPage.enterTextInNewColumnNameTextArea(text);
-
     }
 
     @When("Click \"Save\" button")
     public void clickSaveButton() {
         createNewCardPage.clickSaveButton();
-
     }
 
     @Then("New card with {string} text, author and favorite icon is displayed")
@@ -44,6 +42,5 @@ public class CreateNewCardStepdefs {
         // @TODO: Replace hardcoded user name with actual dynamic value when implemented
         assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthor(mostRecentCard), is(equalTo("Isaak Newton")));
         assertThat("No Favorite icon on most recent card", createNewCardPage.getFavoriteIconName(mostRecentCard), is("favorite_border"));
-
     }
 }
