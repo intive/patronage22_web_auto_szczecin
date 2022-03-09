@@ -11,7 +11,6 @@ import static org.hamcrest.Matchers.is;
 public class ContextMenuStepdefs {
     ContextMenuPage contextMenuPage = new ContextMenuPage();
 
-
     @When("Click on trigger button")
     public void clickOnTriggerButton() {
         contextMenuPage.clickOnTriggerButton();
@@ -19,12 +18,12 @@ public class ContextMenuStepdefs {
 
     @And("Context menu is open")
     public void contextMenuIsOpen() {
-        assertThat("Context menu is open", contextMenuPage.contextMenuIsOpen(), is(true));
+        assertThat("Context menu is open", contextMenuPage.isContextMenuOpen(), is(true));
     }
 
     @And("The list of items contains two items")
     public void theListOfItemsContainsTwoItems() {
-        assertThat("The list of items contains two items", contextMenuPage.listContainsTwoItems(), is(true));
+        assertThat("The list of items contains two items", contextMenuPage.isListContainsTwoItems(), is(true));
     }
 
     @And("Click on item")
@@ -39,6 +38,6 @@ public class ContextMenuStepdefs {
 
     @Then("Context menu is close")
     public void contextMenuIsClose() {
-        assertThat("Context menu is not close", contextMenuPage.contextMenuShouldBeClose(), is(true));
+        assertThat("Context menu is not close", contextMenuPage.isContextMenuClosed(), is(true));
     }
 }

@@ -11,34 +11,34 @@ import java.util.List;
 import java.time.Duration;
 
 public class ContextMenuPage extends BasePage {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-    @FindBy(how = How.CSS, using = "#__next > div > main > div.sc-3c8adf34-0.isvBOn > div:nth-child(2) > div > div > button > span")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[1]/div[2]/div/div/button")
     WebElement triggerButton;
     @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[1]/div[2]/div/div/nav")
     WebElement openContextMenu;
     @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[1]/div[2]/div/div/nav/ul")
     WebElement listOfItems;
-    @FindBy(how = How.CSS, using = "#__next > div > main > div.sc-3c8adf34-0.isvBOn > div:nth-child(2) > div > div > nav > ul > li:nth-child(1)")
+    @FindBy(how = How.ID, using = "__next")
     WebElement item;
     @FindBy(how = How.CLASS_NAME, using = "container")
     WebElement placeOutsideContextMenu;
 
     public void clickOnTriggerButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(triggerButton));
         triggerButton.click();
     }
 
-    public boolean contextMenuIsOpen() {
+    public boolean isContextMenuOpen() {
         return openContextMenu.isDisplayed();
     }
 
-    public boolean listContainsTwoItems() {
+    //returns true if the context menu contains 2 items or false if it contains less or more than 2 items
+    public boolean isListContainsTwoItems() {
         List<WebElement> optionsList = listOfItems.findElements(By.cssSelector("li"));
-        int i = optionsList.size();
-        System.out.println(i);
+        int items = optionsList.size();
         for (WebElement li : optionsList) {
-            if (!li.isDisplayed() || i != 2) {
+            if (!li.isDisplayed() || items != 2) {
                 return false;
             }
         }
@@ -46,7 +46,6 @@ public class ContextMenuPage extends BasePage {
     }
 
     public void clickOnItem() {
-        wait.until(ExpectedConditions.visibilityOf(listOfItems));
         item.click();
     }
 
@@ -54,8 +53,7 @@ public class ContextMenuPage extends BasePage {
         placeOutsideContextMenu.click();
     }
 
-    //returns true if the context menu is closed and false if it is displayed
-    public boolean contextMenuShouldBeClose() {
+    public boolean isContextMenuClosed() {
         return !openContextMenu.isDisplayed();
     }
 }
