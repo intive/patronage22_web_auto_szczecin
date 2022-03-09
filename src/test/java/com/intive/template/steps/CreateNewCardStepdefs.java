@@ -6,17 +6,13 @@ import io.cucumber.java.en.When;
 import org.hamcrest.core.IsNull;
 import org.openqa.selenium.WebElement;
 
-import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
-
 import java.io.IOException;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.equalTo;
 
 public class CreateNewCardStepdefs {
-//JButton button = new JButton("Add card");
-//button.addActionListener(new ActionListener() {
     CreateNewCardPage createNewCardPage = new CreateNewCardPage();
 
     @When("Click \"Add card\" button")
@@ -39,7 +35,6 @@ public class CreateNewCardStepdefs {
         WebElement mostRecentCard = createNewCardPage.getMostRecentCard();
         assertThat("New card is not displayed", mostRecentCard, is(IsNull.notNullValue()));
         assertThat("Most recent card does not contain \"" + text + "\" text", createNewCardPage.getTextOnCard(mostRecentCard), is(equalTo(text)));
-        // @TODO: Replace hardcoded user name with actual dynamic value when implemented
         assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthor(mostRecentCard), is(equalTo("Isaak Newton")));
         assertThat("No Favorite icon on most recent card", createNewCardPage.getFavoriteIconName(mostRecentCard), is("favorite_border"));
     }

@@ -7,21 +7,15 @@ import org.openqa.selenium.support.How;
 
 import java.lang.CharSequence;
 
-import static io.cucumber.messages.internal.com.fasterxml.jackson.databind.cfg.CoercionInputShape.String;
-import static org.apache.commons.lang.StringEscapeUtils.escapeHtml;
-
-public class CreateNewCardPage<CARD_NAME> extends BasePage {
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[2]/div[1]/button")
+public class CreateNewCardPage extends BasePage {
+    @FindBy(how = How.XPATH, using = "html/body/div/div/main/div[2]/div[1]/button")
     WebElement addCardButton;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[2]/div[1]/textarea")
+    @FindBy(how = How.XPATH, using = "html/body/div/div/main/div[2]/div[1]/textarea")
     WebElement newColumnNameTextArea;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[2]/div[1]/div/button[2]")
+    @FindBy(how = How.XPATH, using = "html/body/div/div/main/div[2]/div[1]/div/button[2]")
     WebElement saveButton;
-
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[2]/div[1]/div/button[2]")
-    WebElement newCard;
 
     public void enterTextInNewColumnNameTextArea(CharSequence text) {
         newColumnNameTextArea.sendKeys(text);
@@ -36,7 +30,7 @@ public class CreateNewCardPage<CARD_NAME> extends BasePage {
     }
 
     public WebElement getMostRecentCard() {
-        return driver.findElement(By.xpath("/html/body/div/div/main/div[2]/div[2]/div[1]"));
+        return driver.findElement(By.xpath("html/body/div/div/main/div[2]/div[2]/div[1]"));
     }
 
     public String getTextOnCard(WebElement card) {
