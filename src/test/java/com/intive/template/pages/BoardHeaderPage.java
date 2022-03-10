@@ -23,7 +23,7 @@ public class BoardHeaderPage extends BasePage {
         return title.isDisplayed();
     }
 
-    public boolean isNewColumnuttonVisble() {
+    public boolean isNewColumnButtonVisible() {
         return newColumnButton.isDisplayed();
     }
 

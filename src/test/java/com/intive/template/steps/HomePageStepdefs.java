@@ -1,6 +1,7 @@
 package com.intive.template.steps;
 
 import com.intive.template.pages.HomePage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -66,5 +67,24 @@ public class HomePageStepdefs {
         assertThat("Cards count doesn't render properly",
                 homePage.isCardsCountersDisplayedProperly(), is(true));
     }
-}
 
+    @And("Logo is visible")
+    public void logoIsVisible() {
+        assertThat("Header logo is not visible", homePage.logoIsDisplayed(), is(true));
+    }
+
+    @And("{string} title of header is visible and readable")
+    public void titleOfHeaderIsVisibleAndReadable(String titleOfHeader) {
+        assertThat("Title of header is not visible", homePage.getHeaderTitleText(), is(equalTo(titleOfHeader)));
+    }
+
+    @Then("Header is {string}")
+    public void headerIsSticky(String position) {
+        assertThat("Header is not sticky", homePage.getHeaderCssPosition(), is(equalTo(position)));
+    }
+
+    @Then("{string} color of background should be visible")
+    public void bodyBackgroundShouldBeVisible(String value) {
+        assertThat("Background color is different", homePage.getHeaderBackgroundCssValue(), is(equalTo(value)));
+    }
+}

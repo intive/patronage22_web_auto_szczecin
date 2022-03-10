@@ -5,6 +5,7 @@ import okhttp3.Request;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,6 +34,9 @@ public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//p[contains(text(), ' card') and /html/body/div/div/main/div/div]")
     List<WebElement> cardsCounters;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a/p")
+    WebElement headerTitle;
 
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
@@ -119,4 +123,20 @@ public class HomePage extends BasePage {
         return true;
     }
 
+    public boolean logoIsDisplayed() {
+        return logo.isDisplayed();
+    }
+
+    public String getHeaderTitleText() {
+        return headerTitle.getText();
+    }
+
+    public String getHeaderCssPosition() {
+        return headerComponent.getCssValue("position");
+    }
+
+    public String getHeaderBackgroundCssValue() {
+        String colorBackground = headerComponent.getCssValue("background-color");
+        return Color.fromString(colorBackground).asHex();
+    }
 }
