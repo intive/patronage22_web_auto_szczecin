@@ -77,8 +77,8 @@ public class HomePage extends BasePage {
     }
 
     public void createBoardTileClickable() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5,1));
-        wait.until(ExpectedConditions.elementToBeClickable (createBoardTile));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(createBoardTile));
     }
 
     public void hoverNewBoardButton() {
@@ -87,8 +87,8 @@ public class HomePage extends BasePage {
     }
 
     public void newBoardButtonClickable() {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5,1));
-        wait.until(ExpectedConditions.elementToBeClickable (newBoardButton));
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(newBoardButton));
     }
 
     public boolean isCardsCountersDisplayed() {
