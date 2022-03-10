@@ -23,7 +23,7 @@ public class ContextMenuStepdefs {
 
     @And("The list of items contains two items")
     public void theListOfItemsContainsTwoItems() {
-        assertThat("The list of items contains two items", contextMenuPage.isListContainsTwoItems(), is(true));
+        assertThat("The list of items contains two items", contextMenuPage.isListContainsItems(2), is(true));
     }
 
     @And("Click on item")

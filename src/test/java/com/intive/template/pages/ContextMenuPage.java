@@ -33,12 +33,13 @@ public class ContextMenuPage extends BasePage {
         return openContextMenu.isDisplayed();
     }
 
-    //returns true if the context menu contains 2 items or false if it contains less or more than 2 items
-    public boolean isListContainsTwoItems() {
+    // returns true if the context menu contains exactly the number of items provided or false if it contains fewer
+    // or more items than the number specified
+    public boolean isListContainsItems(int itemsNumber) {
         List<WebElement> optionsList = listOfItems.findElements(By.cssSelector("li"));
         int items = optionsList.size();
         for (WebElement li : optionsList) {
-            if (!li.isDisplayed() || items != 2) {
+            if (!li.isDisplayed() || items != itemsNumber) {
                 return false;
             }
         }
