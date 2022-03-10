@@ -4,11 +4,15 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +25,12 @@ public class HomePage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a")
     WebElement logo;
+
+    @FindBy(how = How.XPATH, using = "//div[@role='button']")
+    WebElement createBoardTile;
+
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'New board')]")
+    WebElement newBoardButton;
 
     @FindBy(how = How.XPATH, using = "//p[contains(text(), ' card') and /html/body/div/div/main/div/div]")
     List<WebElement> cardsCounters;
@@ -59,6 +69,26 @@ public class HomePage extends BasePage {
 
     public void clickOnLogo() {
         logo.click();
+    }
+
+    public void hoverCreateBoardTile() {
+        Actions hover = new Actions(driver);
+        hover.moveToElement(createBoardTile).perform();
+    }
+
+    public void createBoardTileClickable() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(createBoardTile));
+    }
+
+    public void hoverNewBoardButton() {
+        Actions hover = new Actions(driver);
+        hover.moveToElement(newBoardButton).perform();
+    }
+
+    public void newBoardButtonClickable() {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(newBoardButton));
     }
 
     public boolean isCardsCountersDisplayed() {
