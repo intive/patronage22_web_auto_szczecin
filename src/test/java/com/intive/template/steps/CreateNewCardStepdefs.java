@@ -32,10 +32,9 @@ public class CreateNewCardStepdefs {
 
     @Then("New card with {string} text, author and favorite icon is displayed")
     public void newCardIsCreated(String text) throws IOException {
-        WebElement mostRecentCard = createNewCardPage.getMostRecentCard();
-        assertThat("New card is not displayed", mostRecentCard, is(IsNull.notNullValue()));
-        assertThat("Most recent card does not contain \"" + text + "\" text", createNewCardPage.getTextOnCard(mostRecentCard), is(equalTo(text)));
-        assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthor(mostRecentCard), is(equalTo("Isaak Newton")));
-        assertThat("No Favorite icon on most recent card", createNewCardPage.getFavoriteIconName(mostRecentCard), is("favorite_border"));
+        assertThat("New card is not displayed", createNewCardPage.getMostRecentCard(), is(IsNull.notNullValue()));
+        assertThat("Most recent card does not contain \"" + text + "\" text", createNewCardPage.getTextOnCard(), is(equalTo(text)));
+        assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthorOnCard(), is(equalTo("Isaak Newton")));
+        assertThat("No Favorite icon on most recent card", createNewCardPage.getFavoriteIconNameOnCard(), is("favorite_border"));
     }
 }
