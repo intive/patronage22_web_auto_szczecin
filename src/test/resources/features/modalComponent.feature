@@ -13,7 +13,7 @@ Feature: Modal component feature
     Then Click on Cancel button
 
   @P2022-1207
-  Scenario: Click on modal Cancel button
+  Scenario: Click on modal Continue button
     Given Open home page
     When User click on 'Click to Open Modal' button
     Then Click on Continue button
