@@ -3,6 +3,7 @@ Feature: Board header component feature
   @P2022-439
   Scenario: Board header component exists
     Given Open home page
+    When Click on boards from db board 1 button
     Then Board header component contains Return to main board text, title and new column button
 
   @P2022-439

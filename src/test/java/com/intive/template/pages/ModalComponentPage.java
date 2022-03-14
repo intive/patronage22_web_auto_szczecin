@@ -6,7 +6,7 @@ import org.openqa.selenium.support.How;
 
 public class ModalComponentPage extends BasePage{
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/button[1]")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/button[1]")
     WebElement openModalButton;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[3]/button[1]")
