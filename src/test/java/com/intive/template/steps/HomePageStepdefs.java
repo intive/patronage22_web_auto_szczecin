@@ -1,6 +1,7 @@
 package com.intive.template.steps;
 
 import com.intive.template.pages.HomePage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -35,5 +36,55 @@ public class HomePageStepdefs {
     public void clickOnLogo(){
         homePage.clickOnLogo();
     }
-}
 
+    @When("Hover over Create board tile component")
+    public void hoverOverCreateBoardTileComponent() {
+        homePage.hoverCreateBoardTile();
+    }
+
+    @Then("Create board tile component is clickable")
+    public void createBoardTileComponentIsClickable() {
+        homePage.createBoardTileClickable();
+    }
+
+    @When("Hover over New board button")
+    public void hoverOverNewBoardButton() {
+        homePage.hoverNewBoardButton();
+    }
+
+    @Then("New board button is clickable")
+    public void newBoardButtonIsClickable() {
+        homePage.newBoardButtonClickable();
+    }
+
+    @When("Cards counts are displayed")
+    public void isCardsCounterVisible() {
+        assertThat("Cards counts are not displayed", homePage.isCardsCountersDisplayed(), is(true));
+    }
+
+    @Then("Check if 'card' in cards count renders properly")
+    public void checkCardsCounters() {
+        assertThat("Cards count doesn't render properly",
+                homePage.isCardsCountersDisplayedProperly(), is(true));
+    }
+
+    @And("Logo is visible")
+    public void logoIsVisible() {
+        assertThat("Header logo is not visible", homePage.logoIsDisplayed(), is(true));
+    }
+
+    @And("{string} title of header is visible and readable")
+    public void titleOfHeaderIsVisibleAndReadable(String titleOfHeader) {
+        assertThat("Title of header is not visible", homePage.getHeaderTitleText(), is(equalTo(titleOfHeader)));
+    }
+
+    @Then("Header is {string}")
+    public void headerIsSticky(String position) {
+        assertThat("Header is not sticky", homePage.getHeaderCssPosition(), is(equalTo(position)));
+    }
+
+    @Then("{string} color of background should be visible")
+    public void bodyBackgroundShouldBeVisible(String value) {
+        assertThat("Background color is different", homePage.getHeaderBackgroundCssValue(), is(equalTo(value)));
+    }
+}
