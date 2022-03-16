@@ -6,14 +6,17 @@ import org.openqa.selenium.support.How;
 
 public class BoardHeaderPage extends BasePage {
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/section/a")
+    @FindBy(how = How.XPATH, using = "/html/body/div/section/a")
     WebElement returnToMainBoardLink;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/section/div/h1")
+    @FindBy(how = How.XPATH, using = "/html/body/div/header/div")
     WebElement title;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/section/div/button")
+    @FindBy(how = How.XPATH, using = "/html/body/div/section/div/button")
     WebElement newColumnButton;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/a[1]/h4")
+    WebElement boardsFromDbBoard1Page;
     
     public boolean isReturnToMainBoardLinkVisible() {
         return returnToMainBoardLink.isDisplayed();
@@ -30,5 +33,7 @@ public class BoardHeaderPage extends BasePage {
     public void clickOnReturnToMainBoardLink() {
         returnToMainBoardLink.click();
     }
+
+    public void clickOnBoardsFromDbBoard1Button() {boardsFromDbBoard1Page.click();}
 }
 
