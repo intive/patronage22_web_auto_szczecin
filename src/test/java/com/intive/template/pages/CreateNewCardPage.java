@@ -9,13 +9,13 @@ import java.lang.CharSequence;
 import java.util.logging.Logger;
 
 public class CreateNewCardPage extends BasePage {
-    @FindBy(how = How.XPATH, using = "html/body/div/div/main/div[2]/div[1]/button")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/div[2]/div[1]/button")
     WebElement addCardButton;
 
-    @FindBy(how = How.XPATH, using = "html/body/div/div/main/div[2]/div[1]/textarea")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/div[2]/div[1]/textarea")
     WebElement newColumnNameTextArea;
 
-    @FindBy(how = How.XPATH, using = "html/body/div/div/main/div[2]/div[1]/div/button[2]")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/div[2]/div[1]/div/button[2]")
     WebElement saveButton;
 
     WebElement mostRecentCard = null;
@@ -34,7 +34,7 @@ public class CreateNewCardPage extends BasePage {
 
     public WebElement getMostRecentCard() {
         if (mostRecentCard == null) {
-            mostRecentCard = driver.findElement(By.xpath("/html/body/div/div/main/div[2]/div[2]/div[1]"));
+            mostRecentCard = driver.findElement(By.xpath("/html/body/div/div/div[2]/div[2]/div[1]"));
         }
         return mostRecentCard;
     }

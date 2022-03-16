@@ -4,7 +4,6 @@ import com.intive.template.pages.CreateNewCardPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hamcrest.core.IsNull;
-import org.openqa.selenium.WebElement;
 
 import java.io.IOException;
 
@@ -30,11 +29,11 @@ public class CreateNewCardStepdefs {
         createNewCardPage.clickSaveButton();
     }
 
-    @Then("New card with {string} text, author and favorite icon is displayed")
-    public void newCardIsCreated(String text) throws IOException {
+    @Then("New card with {string} as card content, {string} as author and favorite icon is displayed")
+    public void newCardIsCreated(String cardContent, String author) throws IOException {
         assertThat("New card is not displayed", createNewCardPage.getMostRecentCard(), is(IsNull.notNullValue()));
-        assertThat("Most recent card does not contain \"" + text + "\" text", createNewCardPage.getTextOnCard(), is(equalTo(text)));
-        assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthorOnCard(), is(equalTo("Isaak Newton")));
+        assertThat(String.format("Most recent card does not contain \"%s\" in card content", cardContent), createNewCardPage.getTextOnCard(), is(equalTo(cardContent)));
+        assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthorOnCard(), is(equalTo(author)));
         assertThat("No Favorite icon on most recent card", createNewCardPage.getFavoriteIconNameOnCard(), is("favorite_border"));
     }
 }
