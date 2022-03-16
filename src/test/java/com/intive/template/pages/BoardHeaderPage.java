@@ -3,16 +3,20 @@ package com.intive.template.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BoardHeaderPage extends BasePage {
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/section/a")
+    @FindBy(how = How.XPATH, using = "//a[contains(@href,'/')]")
     WebElement returnToMainBoardLink;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/header/div")
+    @FindBy(how = How.XPATH, using = "/html/body/div/section/div/h1")
     WebElement title;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/section/div/button")
+    @FindBy(how = How.XPATH, using = "//button[normalize-space(text()='New Column')]")
     WebElement newColumnButton;
 
     @FindBy(how = How.XPATH, using = "/html/body/div/div/a[1]/h4")
@@ -23,6 +27,8 @@ public class BoardHeaderPage extends BasePage {
     }
 
     public boolean isTitleVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(title));
         return title.isDisplayed();
     }
 
@@ -34,6 +40,8 @@ public class BoardHeaderPage extends BasePage {
         returnToMainBoardLink.click();
     }
 
-    public void clickOnBoardsFromDbBoard1Button() {boardsFromDbBoard1Page.click();}
+    public void clickOnBoardsFromDbBoard1Button() {
+        boardsFromDbBoard1Page.click();
+    }
 }
 
