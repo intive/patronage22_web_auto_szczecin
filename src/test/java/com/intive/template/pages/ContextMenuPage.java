@@ -12,11 +12,11 @@ import java.time.Duration;
 
 public class ContextMenuPage extends BasePage {
 
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[1]/div[2]/div/div/button")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"__next\"]/div/div[1]/div[2]/div/div/button/span")
     WebElement triggerButton;
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[1]/div[2]/div/div/nav")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"01FV73TD3GSJ82YJE85XJRBT13\"]")
     WebElement openContextMenu;
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/main/div[1]/div[2]/div/div/nav/ul")
+    @FindBy(how = How.XPATH, using = "/html/body/div/div/div[1]/div[2]/div/div/nav/ul")
     WebElement listOfItems;
     @FindBy(how = How.ID, using = "__next")
     WebElement item;
