@@ -30,8 +30,8 @@ public class CreateNewCardStepdefs {
     }
 
     @Then("New card with {string} as card content, {string} as author and favorite icon is displayed")
-    public void newCardIsCreated(String cardContent, String author) throws IOException {
-        assertThat("New card is not displayed", createNewCardPage.getMostRecentCard(), is(IsNull.notNullValue()));
+    public void newCardIsCreated(String cardContent, String author) {
+        assertThat("New card is not displayed", createNewCardPage.isRecentCardDisplayed(), is(true));
         assertThat(String.format("Most recent card does not contain \"%s\" in card content", cardContent), createNewCardPage.getTextOnCard(), is(equalTo(cardContent)));
         assertThat("Wrong Author is on most recent card", createNewCardPage.getAuthorOnCard(), is(equalTo(author)));
         assertThat("No Favorite icon on most recent card", createNewCardPage.getFavoriteIconNameOnCard(), is("favorite_border"));
