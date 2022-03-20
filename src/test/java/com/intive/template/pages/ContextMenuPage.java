@@ -14,7 +14,7 @@ public class ContextMenuPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"__next\"]/div/div[1]/div[2]/div/div/button/span")
     WebElement triggerButton;
-    @FindBy(how = How.XPATH, using = "//*[@id=\"01FV73TD3GSJ82YJE85XJRBT13\"]")
+    @FindBy(how = How.XPATH, using = "//*[@id=\"01FV757GXRK6A9MMFA1EMA2V7D\"]")
     WebElement openContextMenu;
     @FindBy(how = How.XPATH, using = "/html/body/div/div/div[1]/div[2]/div/div/nav/ul")
     WebElement listOfItems;
