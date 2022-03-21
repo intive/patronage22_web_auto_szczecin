@@ -1,6 +1,7 @@
 package com.intive.template.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.WebElement;
@@ -14,7 +15,7 @@ public class ContextMenuPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"__next\"]/div/div[1]/div[2]/div/div/button/span")
     WebElement triggerButton;
-    @FindBy(how = How.CLASS_NAME, using = "sc-5ba0824a-3")
+    @FindBy(how = How.XPATH, using = "//div[2]//div[1]//div[1]//nav[1]")
     WebElement openContextMenu;
     @FindBy(how = How.XPATH, using = "/html/body/div/div/div[1]/div[2]/div/div/nav/ul")
     WebElement listOfItems;
