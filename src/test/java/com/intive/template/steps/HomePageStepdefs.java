@@ -87,4 +87,9 @@ public class HomePageStepdefs {
     public void bodyBackgroundShouldBeVisible(String value) {
         assertThat("Background color is different", homePage.getHeaderBackgroundCssValue(), is(equalTo(value)));
     }
+
+    @When("Click on first board tile")
+    public void clickOnFirtsTile() {
+        homePage.clickOnFirstTile();
+    }
 }
