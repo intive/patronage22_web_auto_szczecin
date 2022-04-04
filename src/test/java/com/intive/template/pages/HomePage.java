@@ -38,6 +38,9 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "/html/body/div/div/header/div/a/p")
     WebElement headerTitle;
 
+    @FindBy(how = How.XPATH, using = "//a[@data-testid='board-tile'][1]")
+    WebElement firstBordTile;
+
     public void openHomePage() {
         driver.get(PATRONAGE_URL);
     }
@@ -59,6 +62,8 @@ public class HomePage extends BasePage {
     }
 
     public boolean isCorrectPage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.urlToBe(PATRONAGE_URL));
         String currentUrl = driver.getCurrentUrl();
         return currentUrl.equals(PATRONAGE_URL);
     }
@@ -138,5 +143,9 @@ public class HomePage extends BasePage {
     public String getHeaderBackgroundCssValue() {
         String colorBackground = headerComponent.getCssValue("background-color");
         return Color.fromString(colorBackground).asHex();
+    }
+
+    public void clickOnFirstTile() {
+        firstBordTile.click();
     }
 }

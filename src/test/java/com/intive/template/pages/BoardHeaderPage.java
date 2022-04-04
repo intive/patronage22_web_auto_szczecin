@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class BoardHeaderPage extends BasePage {
 
-    @FindBy(how = How.XPATH, using = "//a[contains(@href,'/')]")
+    @FindBy(how = How.XPATH, using = "//section[@data-testid='board-header']/a")
     WebElement returnToMainBoardLink;
 
     @FindBy(how = How.XPATH, using = "/html/body/div/section/div/h1")
@@ -18,11 +18,10 @@ public class BoardHeaderPage extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//button[normalize-space(text()='New Column')]")
     WebElement newColumnButton;
-
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/a[1]/h4")
-    WebElement boardsFromDbBoard1Page;
     
     public boolean isReturnToMainBoardLinkVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(returnToMainBoardLink));
         return returnToMainBoardLink.isDisplayed();
     }
 
@@ -37,11 +36,9 @@ public class BoardHeaderPage extends BasePage {
     }
 
     public void clickOnReturnToMainBoardLink() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(returnToMainBoardLink));
         returnToMainBoardLink.click();
-    }
-
-    public void clickOnBoardsFromDbBoard1Button() {
-        boardsFromDbBoard1Page.click();
     }
 }
 

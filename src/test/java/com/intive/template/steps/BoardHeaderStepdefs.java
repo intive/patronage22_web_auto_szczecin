@@ -18,11 +18,6 @@ public class BoardHeaderStepdefs {
         assertThat("Board header component should contains New column button", boardHeaderPage.isNewColumnButtonVisible(), is(true));
     }
 
-    @When("Click on boards from db board 1 button")
-    public void clickOnBoardsFromDbBoard1Button() { boardHeaderPage.clickOnBoardsFromDbBoard1Button();
-
-    }
-
     @When("Click on Return to main board text")
     public void clickOnReturnToMainBoardText() {
         boardHeaderPage.clickOnReturnToMainBoardLink();

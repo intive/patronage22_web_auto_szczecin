@@ -13,11 +13,11 @@ import java.time.Duration;
 
 public class ContextMenuPage extends BasePage {
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"__next\"]/div/div[1]/div[2]/div/div/button/span")
+    @FindBy(how = How.XPATH, using = "//a[@data-testid='board-tile'][1]//div[@data-testid='context-menu']/button")
     WebElement triggerButton;
-    @FindBy(how = How.XPATH, using = "//div[2]//div[1]//div[1]//nav[1]")
+    @FindBy(how = How.XPATH, using = "//a[@data-testid='board-tile'][1]//div[@data-testid='context-menu']/nav")
     WebElement openContextMenu;
-    @FindBy(how = How.XPATH, using = "/html/body/div/div/div[1]/div[2]/div/div/nav/ul")
+    @FindBy(how = How.XPATH, using = "//a[@data-testid='board-tile'][1]//div[@data-testid='context-menu']/nav/ul")
     WebElement listOfItems;
     @FindBy(how = How.ID, using = "__next")
     WebElement item;
@@ -31,6 +31,8 @@ public class ContextMenuPage extends BasePage {
     }
 
     public boolean isContextMenuOpen() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(openContextMenu));
         return openContextMenu.isDisplayed();
     }
 
